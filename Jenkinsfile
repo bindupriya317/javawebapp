@@ -38,11 +38,13 @@ pipeline {
              script
              {
                def sonarscanner = tool 'sonar_scanner'
-               withSonarQubeEnv(credentialsId:'sonar-jenkins1') {
+               withSonarQubeEnv(credentialsId:'sonar-jenkins') {
                
                     // some block
                     sh """
-                    ${sonarscanner}/bin/sonar-scanner -Dsonar.projectKey=develop -Dsonar.java.binaries=**/*                                  
+                    ${sonarscanner}/bin/sonar-scanner -Dsonar.projectKey=develop -Dsonar.java.binaries=**/* 
+                    
+                    
                     """
                 }
              }
